@@ -3,21 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Мини-игры Telegram</title>
+    <title>РњРёРЅРё-РёРіСЂС‹ Telegram</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
 </head>
 <body>
     <div class="game-container">
         <div class="stats">
-            <div>Уровень: <span id="level">1</span></div>
-            <div>Очки: <span id="score">0</span></div>
-            <div>Время: <span id="timer">60</span></div>
+            <div>РЈСЂРѕРІРµРЅСЊ: <span id="level">1</span></div>
+            <div>РћС‡РєРё: <span id="score">0</span></div>
+            <div>Р’СЂРµРјСЏ: <span id="timer">60</span></div>
         </div>
         <div id="gameContent"></div>
-        <input type="text" id="guessInput" placeholder="Ваш ответ">
-        <button id="submitGuess">Отправить</button>
-        <button id="startGame">Начать новую игру</button>
+        <input type="text" id="guessInput" placeholder="Р’Р°С€ РѕС‚РІРµС‚">
+        <button id="submitGuess">РћС‚РїСЂР°РІРёС‚СЊ</button>
+        <button id="startGame">РќР°С‡Р°С‚СЊ РЅРѕРІСѓСЋ РёРіСЂСѓ</button>
         <div id="feedback" class="feedback"></div>
     </div>
     <script src="game.js"></script>
