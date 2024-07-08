@@ -86,6 +86,33 @@ class PointSystem {
     }
 }
 
+// Инициализация Telegram Mini App
+let tg = window.Telegram.WebApp;
+
+// Функция для инициализации приложения
+function initApp() {
+    tg.ready();
+    tg.expand();
+
+    // Настройка темы
+    if (tg.colorScheme === 'dark') {
+        document.body.classList.add('dark-theme');
+    }
+
+    // Настройка основной кнопки Telegram
+    tg.MainButton.setText('Начать игру');
+    tg.MainButton.show();
+    tg.MainButton.onClick(() => app.startRandomGame());
+
+    // Отправка данных в Telegram при завершении игры
+    window.onbeforeunload = () => {
+        tg.sendData(JSON.stringify({
+            score: app.currentGame.pointSystem.totalScore,
+            level: app.currentGame.pointSystem.level
+        }));
+    };
+}
+
 // Основные классы игр
 class Game {
     constructor(name) {
@@ -207,8 +234,13 @@ class GameApp {
         this.initEventListeners();
         this.loadProgress();
     }
+ // Инициализация Telegram Mini App
+        if (window.Telegram && window.Telegram.WebApp) {
+            initApp();
+        }
+    }    
 
-    initEventListeners() {
+ initEventListeners() {
         this.startButton.addEventListener('click', () => this.startRandomGame());
         this.submitButton.addEventListener('click', () => this.makeGuess());
     }
@@ -311,6 +343,12 @@ class GameApp {
         }
 
         this.progress.save();
+    }
+
+// Обновление счета в Telegram
+        if (window.Telegram && window.Telegram.WebApp) {
+            tg.MainButton.setText(`Счет: ${this.currentGame.pointSystem.totalScore}`);
+        }
     }
 
     updateStats() {
