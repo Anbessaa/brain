@@ -234,7 +234,8 @@ class GameApp {
         this.initEventListeners();
         this.loadProgress();
     }
- // Инициализация Telegram Mini App
+ 
+    // Инициализация Telegram Mini App
         if (window.Telegram && window.Telegram.WebApp) {
             initApp();
         }
@@ -332,20 +333,19 @@ class GameApp {
         this.updateStats();
 
         if (isCorrect) {
-            this.submitButton.disabled = true; // Отключаем кнопку после правильного ответа
+            this.submitButton.disabled = true;
             setTimeout(() => {
                 this.startRandomGame();
                 this.feedback.textContent = '';
-                this.submitButton.disabled = false; // Включаем кнопку для новой игры
+                this.submitButton.disabled = false;
             }, 2000);
         } else {
             this.startButton.disabled = false;
         }
 
         this.progress.save();
-    }
 
-// Обновление счета в Telegram
+        // Обновление счета в Telegram
         if (window.Telegram && window.Telegram.WebApp) {
             tg.MainButton.setText(`Счет: ${this.currentGame.pointSystem.totalScore}`);
         }
