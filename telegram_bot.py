@@ -10,7 +10,7 @@ def start(update: Update, context: CallbackContext) -> None:
     update.message.reply_text(GAME_URL)
 
 def main():
-    updater = Updater(BOT_TOKEN, use_context=True)
+    updater = Updater(BOT_TOKEN)
     dispatcher = updater.dispatcher
 
     dispatcher.add_handler(CommandHandler("start", start))
