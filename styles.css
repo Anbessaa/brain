@@ -1,0 +1,98 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f2f5;
+    color: #333;
+}
+
+.game-container {
+    background-color: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 400px;
+    width: 100%;
+}
+
+.stats {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    font-size: 14px;
+    color: #666;
+}
+
+.stats div {
+    background-color: #f7f7f7;
+    padding: 8px 12px;
+    border-radius: 20px;
+}
+
+#gameContent {
+    margin-bottom: 20px;
+}
+
+#gameContent h2 {
+    color: #0088cc;
+    margin-bottom: 15px;
+}
+
+input {
+    width: calc(100% - 24px);
+    padding: 12px;
+    font-size: 16px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    transition: border-color 0.3s;
+}
+
+input:focus {
+    border-color: #0088cc;
+    outline: none;
+}
+
+button {
+    background-color: #0088cc;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 5px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #006699;
+}
+
+#startGame {
+    background-color: #4CAF50;
+}
+
+#startGame:hover {
+    background-color: #45a049;
+}
+
+.feedback {
+    margin-top: 20px;
+    font-weight: bold;
+    color: #0088cc;
+}
+
+/* Анимация для отображения фактов */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+#gameContent p {
+    animation: fadeIn 0.5s ease-out;
+}
